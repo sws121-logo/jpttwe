@@ -8,7 +8,6 @@ interface Program {
   description: string;
   duration: string;
   eligibility: string;
-  fee: number;
   created_at: string;
 }
 
@@ -39,7 +38,6 @@ const CulturalPrograms: React.FC = () => {
           description: 'A comprehensive program exploring classical and contemporary music, dance, and theater performances with expert faculty guidance.',
           duration: '1 Year',
           eligibility: 'Open to all students with interest in performing arts',
-          fee: 15000,
           created_at: '2024-01-01'
         },
         {
@@ -48,7 +46,6 @@ const CulturalPrograms: React.FC = () => {
           description: 'Hands-on training in painting, sculpture, and digital art techniques. Develop your artistic skills and showcase your creativity.',
           duration: '6 Months',
           eligibility: 'No prior experience required',
-          fee: 12000,
           created_at: '2024-01-01'
         },
         {
@@ -57,7 +54,6 @@ const CulturalPrograms: React.FC = () => {
           description: 'International cultural immersion program with partner universities. Experience diverse cultures and traditions.',
           duration: '3 Months',
           eligibility: 'Current students with minimum 2.5 GPA',
-          fee: 25000,
           created_at: '2024-01-01'
         },
         {
@@ -66,7 +62,6 @@ const CulturalPrograms: React.FC = () => {
           description: 'Learn acting techniques, stage production, and script writing. Participate in college theater productions.',
           duration: '8 Months',
           eligibility: 'Open to all interested students',
-          fee: 18000,
           created_at: '2024-01-01'
         },
         {
@@ -75,7 +70,6 @@ const CulturalPrograms: React.FC = () => {
           description: 'Creative writing, poetry, and literary workshops. Participate in debates, elocution, and literary festivals.',
           duration: '1 Year',
           eligibility: 'Passion for literature and writing',
-          fee: 8000,
           created_at: '2024-01-01'
         },
         {
@@ -84,22 +78,12 @@ const CulturalPrograms: React.FC = () => {
           description: 'Learn filmmaking, editing, and media production. Create short films and documentaries for college festivals.',
           duration: '6 Months',
           eligibility: 'Basic knowledge of media tools preferred',
-          fee: 20000,
           created_at: '2024-01-01'
         }
       ]);
     } finally {
       setLoading(false);
     }
-  };
-
-  const formatFee = (fee: number) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(fee);
   };
 
   if (loading) {
@@ -165,14 +149,14 @@ const CulturalPrograms: React.FC = () => {
                   <div className="flex items-center space-x-3">
                     <Award className="h-5 w-5 text-purple-600" />
                     <div>
-                      <span className="text-sm text-gray-500">Program Fee:</span>
-                      <p className="font-bold text-2xl text-purple-600">{formatFee(program.fee)}</p>
+                      <span className="text-sm text-gray-500">Status:</span>
+                      <p className="font-semibold text-green-600">Free Enrollment</p>
                     </div>
                   </div>
                 </div>
                 
                 <button className="w-full mt-6 bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200">
-                  Enroll Now
+                  Join Now
                 </button>
               </div>
             </div>
