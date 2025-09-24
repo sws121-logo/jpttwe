@@ -8,13 +8,10 @@ import Programs from './components/Programs';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
-import StudentFees from './components/StudentFees'; // Add this import
-import FeesManagement from './pages/FeesManagement'; // Add this import
 
 export interface User {
   id: string;
   email: string;
-  user_type?: 'admin' | 'student'; // Add user type distinction
 }
 
 function App() {
@@ -38,20 +35,6 @@ function App() {
   }, []);
 
   const renderContent = () => {
-    // Admin fee management
-    if (currentSection === 'admin-fees') {
-      if (!user) {
-        return <Login />;
-      }
-      return <FeesManagement />;
-    }
-
-    // Student fee management
-    if (currentSection === 'student-fees') {
-      return <StudentFees />;
-    }
-
-    // Main admin panel
     if (currentSection === 'admin') {
       if (!user) {
         return <Login />;
@@ -59,7 +42,6 @@ function App() {
       return <AdminPanel />;
     }
 
-    // Public sections
     return (
       <>
         <Hero />
@@ -68,27 +50,11 @@ function App() {
             <News />
             <Gallery />
             <Programs />
-            {/* Add fees preview section to home page */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">Fee Information</h2>
-                <p className="mt-4 text-lg text-gray-600">
-                  View and manage your fee payments conveniently
-                </p>
-                <button
-                  onClick={() => setCurrentSection('student-fees')}
-                  className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
-                >
-                  View Fee Details
-                </button>
-              </div>
-            </div>
           </div>
         )}
         {currentSection === 'news' && <News />}
         {currentSection === 'gallery' && <Gallery />}
         {currentSection === 'programs' && <Programs />}
-        {currentSection === 'fees' && <StudentFees />} // Direct fees section access
       </>
     );
   };
