@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
               <MapPin className="h-8 w-8 mx-auto mb-3" />
               <h3 className="text-lg font-semibold mb-2">Location</h3>
-              <p className="text-blue-100">Pathra Englishodhanpur</p>
+              <p className="text-blue-100">Pathra English, odhanpur</p>
               <p className="text-blue-100">Nawada - 805123</p>
             </div>
             
